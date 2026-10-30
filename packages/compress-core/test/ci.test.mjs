@@ -44,7 +44,7 @@ const suites = [
   "llm.test.mjs",
   "ccr.test.mjs",
   "read-lifecycle.test.mjs",
-  "body-limit.test.mjs", "audit.test.mjs",
+  "body-limit.test.mjs", "audit.test.mjs", "page-catalog.test.mjs",
 ]
 
 for (const file of suites) {

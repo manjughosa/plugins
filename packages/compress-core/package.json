@@ -46,9 +46,43 @@
       },
       "gatewayTimeoutMs": 4000,
       "capture": false
-    }
+    },
+    "page": {
+      "title": "Compression",
+      "titles": {
+        "zh": "压缩",
+        "zh-TW": "壓縮",
+        "ja": "圧縮"
+      },
+      "file": "page/index.html",
+      "icon": "page/icon.svg"
+    },
+    "panels": [
+      {
+        "slot": "settings",
+        "title": "Compression",
+        "titles": {
+          "zh": "压缩",
+          "zh-TW": "壓縮",
+          "ja": "圧縮"
+        },
+        "file": "page/settings.html"
+      },
+      {
+        "slot": "usage",
+        "title": "Compression",
+        "titles": {
+          "zh": "压缩",
+          "zh-TW": "壓縮",
+          "ja": "圧縮"
+        },
+        "file": "page/usage.html"
+      }
+    ]
   },
   "scripts": {
-    "test": "node test/run.mjs"
+    "test": "node test/run.mjs",
+    "build:catalog": "node scripts/gen-page-catalog.mjs",
+    "build:page": "node scripts/build-lab-bundle.mjs"
   }
 }
