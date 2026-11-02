@@ -133,7 +133,7 @@ lite 默认**全量改写、严格前缀稳定**：每条消息从第一轮起�
 
 钩子能在**每一次**经过网关的请求上留一条快照，社区版 `capture` 默认**关**（显式设 `true` 才开）。快照落在插件配置目录的 `captures/`，索引另存 `captures-index.json`，最多保留最近 50 条，每条上限 2MB。
 
-快照索引同时会发布成插件数据目录里的 `captures-index.js`，供第二个 PR 里的页面读取；本包只带钩子与数据层。
+页面的 CSP 是 `connect-src 'none'`，只放行插件自己的 `page/` 目录。所以数字和列表由钩子发布成同目录的两个脚本，页面用 `<script src>` 载入：`captures-index.js`（会话列表）和 `compress-stats.js`（顶部统计与每个策略的 saving）。
 
 ## 隐私
 
@@ -173,6 +173,8 @@ node test/live-probe.mjs          # 对着真的 magpie 打一次
 ```
 
 
+
+面板按钮点不动、或者要改页面的渲染层，先读 `DEBUGGING.md`：里面记了渲染契约、会话快照的取法，以及为什么「看起来像沙箱问题」其实不是。
 
 `test/lite-spec.md` 和 `test/session-dedup-spec.md` 是这两个策略的行为契约，改引擎之前先看。
 
